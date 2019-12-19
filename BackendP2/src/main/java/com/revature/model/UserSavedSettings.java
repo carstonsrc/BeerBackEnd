@@ -9,7 +9,12 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 import javax.persistence.Transient;
 
+import org.springframework.stereotype.Component;
+
+
+@Component
 @Entity
+@Table(name="usersavedsettings_table")
 public class UserSavedSettings implements Serializable  {
 	
 	private static final long serialVersionUID = 1L;

@@ -5,7 +5,7 @@ import java.util.List;
 import javax.persistence.criteria.CriteriaBuilder;
 import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.Root;
-
+import org.springframework.stereotype.Repository;
 import org.apache.log4j.Logger;
 import org.hibernate.query.Query;
 import org.hibernate.Session;
@@ -14,6 +14,7 @@ import org.hibernate.Transaction;
 import com.revature.util.HibernateUtil;
 import com.revature.model.UserSavedSettings;
 
+@Repository
 public class UserSavedSettingsDaoImpl  implements UserSavedSettingsDao {
 	
 	private static Logger log = Logger.getRootLogger();
@@ -57,13 +58,14 @@ public class UserSavedSettingsDaoImpl  implements UserSavedSettingsDao {
 	}
 
 	@Override
-	public void updateUserSavedSettings(UserSavedSettings userSavedSettings) {
+	public int updateUserSavedSettings(UserSavedSettings userSavedSettings) {
+		int pk = 0;
 		try(Session s = HibernateUtil.getSession()){
 			Transaction tx = s.beginTransaction();
 			s.update(userSavedSettings);
 			tx.commit();
 		}
-		
+		return pk;
 	}
 	
 	

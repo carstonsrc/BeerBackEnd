@@ -5,6 +5,7 @@ import java.util.List;
 import javax.persistence.criteria.CriteriaBuilder;
 import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.Root;
+import org.springframework.stereotype.Repository;
 
 import org.apache.log4j.Logger;
 import org.hibernate.query.Query;
@@ -14,7 +15,7 @@ import org.hibernate.Transaction;
 import com.revature.model.User;
 import com.revature.util.HibernateUtil;
 
-
+@Repository
 public class UserDaoImpl implements UserDao {
 
 	
@@ -59,13 +60,14 @@ public class UserDaoImpl implements UserDao {
 	}
 
 	@Override
-	public void updateUser(User u) {
+	public int updateUser(User u) {
+		int uk = 0;
 		try(Session s = HibernateUtil.getSession()){
 			Transaction tx = s.beginTransaction();
 			s.update(u);
 			tx.commit();
 		}
-		
+		return uk;
 	}
 
 

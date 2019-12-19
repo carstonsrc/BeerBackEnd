@@ -9,10 +9,13 @@ import javax.persistence.criteria.Root;
 import org.apache.log4j.Logger;
 import org.hibernate.query.Query;
 import org.hibernate.Session;
+import org.springframework.stereotype.Repository;
 
 import com.revature.util.HibernateUtil;
 import com.revature.model.Beer;
 
+
+@Repository
 public class BeerDaoImpl implements BeerDao{
 	
 	private static Logger log = Logger.getRootLogger();

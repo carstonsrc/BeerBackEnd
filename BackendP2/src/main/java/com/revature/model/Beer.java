@@ -8,8 +8,12 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 import javax.persistence.Transient;
+import org.springframework.stereotype.Component;
 
+
+@Component
 @Entity
+@Table(name="beer_table")
 public class Beer implements Serializable {
 	
 	private static final long serialVersionUID = 1L;

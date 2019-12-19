@@ -8,6 +8,6 @@ public interface UserSavedSettingsDao {
 	public List<UserSavedSettings> getUserSavedSettings();
 	public UserSavedSettings getUserSavedSettingsById(int id);
 	public int createUserSavedSettings(UserSavedSettings userSavedSettings);
-	public void updateUserSavedSettings(UserSavedSettings userSavedSettings);
+	public int updateUserSavedSettings(UserSavedSettings userSavedSettings);
 	
 }
