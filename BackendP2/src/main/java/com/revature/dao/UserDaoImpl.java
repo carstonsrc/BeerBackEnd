@@ -70,6 +70,23 @@ public class UserDaoImpl implements UserDao {
 		return uk;
 	}
 
+	@Override
+	public User getUserByUsernameAndPassword(String username, String password) {
+			try(Session s = HibernateUtil.getSession()) {
+			
+			String hql = "from User where user_name = :usernameVar and pass_word = :passwordVar";
+			Query<User> q = s.createQuery(hql, User.class);
+			q.setParameter("usernameVar", username);
+			q.setParameter("passwordVar", password);
+			List<User> u = q.getResultList();
+			if (u.size() != 0) {
+				return u.get(0);
+			}
+			return null;
+	}
 
+
+
+	}
 
 }

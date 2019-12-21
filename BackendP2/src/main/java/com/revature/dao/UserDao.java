@@ -10,5 +10,6 @@ public interface UserDao {
 	public User getUserById(int id);
 	public int createUser(User user);
 	public int updateUser(User u);
+	public User getUserByUsernameAndPassword(String username, String password);
 
 }

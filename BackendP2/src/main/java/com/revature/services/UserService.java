@@ -29,4 +29,7 @@ public class UserService {
 	public int updateUser(User u) {
 		return userdao.updateUser(u);
 	}
+	public User getUserByUsernameAndPassword(String username, String password) {
+		return userdao.getUserByUsernameAndPassword(username,password);
+	}
 }
